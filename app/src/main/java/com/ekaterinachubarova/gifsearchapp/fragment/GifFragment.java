@@ -1,7 +1,9 @@
 package com.ekaterinachubarova.gifsearchapp.fragment;
 
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.widget.SearchViewCompat;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +20,7 @@ import butterknife.ButterKnife;
 /**
  * Created by ekaterinachubarova on 13.09.16.
  */
-public class GifFragment extends Fragment {
+public class GifFragment extends Fragment{
     private Gif gif;
     public static final String GIF_PARS = "GIF";
 
@@ -40,26 +42,16 @@ public class GifFragment extends Fragment {
         return gifFragment;
     }
 
-    @Override
-    public void onCreate (Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        gif = getArguments().getParcelable(GIF_PARS);
-
-    }
 
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.gif_fragment, parent, false);
         ButterKnife.bind(this, v);
 
-        //final Typeface face = Typeface.createFromAsset(getActivity().getAssets(), getString(R.string.roboto_head));
+        gif = getArguments().getParcelable(GIF_PARS);
 
-        //name.setTypeface(face);
-        //date.setTypeface(face);
-        //description.setTypeface(face);
         name.setText(gif.getUsername());
         date.setText(gif.getImportDatetime());
-        //description.setText(film.getDescription());
 
         Ion.with(getActivity())
                 .load(gif.getImages().getOriginal().getUrl())
@@ -67,7 +59,10 @@ public class GifFragment extends Fragment {
 
 
 
+
         return v;
     }
+
+
 }
 

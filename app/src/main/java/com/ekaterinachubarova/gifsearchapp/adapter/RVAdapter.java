@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ekaterinachubarova.gifsearchapp.R;
 import com.ekaterinachubarova.gifsearchapp.rest.model.Gif;

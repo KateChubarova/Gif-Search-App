@@ -1,9 +1,12 @@
 package com.ekaterinachubarova.gifsearchapp.activity;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 
 import com.ekaterinachubarova.gifsearchapp.R;
 
@@ -18,15 +21,20 @@ public abstract class SingleFragmentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_activity);
 
-        FragmentManager fragmentManager = getFragmentManager();
+        FragmentManager fragmentManager = getSupportFragmentManager();
         Fragment fragment = fragmentManager.findFragmentById(R.id.fragment_container);
         if (fragment == null) {
             fragment = createFragment();
             fragmentManager.beginTransaction()
-                    .add(R.id.fragment_container,
-                            fragment)
+                    .replace(R.id.fragment_container, fragment)
                     .commit();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
     }
 }
 

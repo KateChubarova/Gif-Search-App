@@ -1,6 +1,8 @@
 package com.ekaterinachubarova.gifsearchapp.activity;
 
-import android.app.Fragment;
+
+
+import android.support.v4.app.Fragment;
 
 import com.ekaterinachubarova.gifsearchapp.fragment.RecyclerViewFragment;
 
@@ -9,4 +11,6 @@ public class RecyclerViewActivity extends SingleFragmentActivity {
     protected Fragment createFragment() {
         return new RecyclerViewFragment();
     }
+
+
 }

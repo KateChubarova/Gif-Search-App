@@ -1,6 +1,8 @@
 package com.ekaterinachubarova.gifsearchapp.activity;
 
-import android.app.Fragment;
+
+
+import android.support.v4.app.Fragment;
 
 import com.ekaterinachubarova.gifsearchapp.fragment.GifFragment;
 import com.ekaterinachubarova.gifsearchapp.rest.model.Gif;
